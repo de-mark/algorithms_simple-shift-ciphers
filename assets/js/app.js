@@ -15,8 +15,10 @@ const onlyNumberEntry = () =>  {
 
 const toggleEnDecrypt = () => {
     encryptOrDecrypt[0] = encryptOrDecrypt[0] == "e" ? "d" : "e";
+
     document.getElementById("encode-decode-toggle").innerHTML = encryptOrDecrypt[0] == "e" ? "<span>Encoding</span> / <span style='color:grey'>Decoding</span>" :
                                                                                              "<span style='color:grey'>Encoding</span> / <span>Decoding</span>"
+    displayScreen();
 }
 
 const displayScreen = () => {
@@ -100,7 +102,7 @@ const decryptText = () => {
     </div>
     <div>
         <div>
-            <b>Code:</b> ${shiftedCode}
+            <b>Decrypted Code:</b> ${shiftedCode}
         </div>
     </div>
     `
