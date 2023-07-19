@@ -16,8 +16,8 @@ const onlyNumberEntry = () =>  {
 const toggleEnDecrypt = () => {
     encryptOrDecrypt[0] = encryptOrDecrypt[0] == "e" ? "d" : "e";
 
-    document.getElementById("encode-decode-toggle").innerHTML = encryptOrDecrypt[0] == "e" ? "<span>Encoding</span> / <span style='color:grey'>Decoding</span>" :
-                                                                                             "<span style='color:grey'>Encoding</span> / <span>Decoding</span>"
+    document.getElementById("encode-decode-toggle").innerHTML = encryptOrDecrypt[0] == "e" ? "<span class='ende-toggle' style='background-color:black; border-radius: 15px 0 0 15px'>Encoding</span><span class='ende-toggle' style='background-color:grey; border-radius: 0 15px 15px 0'>Decoding</span>" :
+                                                                                             "<span class='ende-toggle' style='background-color:grey; border-radius: 15px 0 0 15px'>Encoding</span><span class='ende-toggle' style='background-color:black; border-radius: 0 15px 15px 0'>Decoding</span>"
     displayScreen();
 }
 
@@ -68,19 +68,15 @@ const encryptText = () => {
     let nextStep = textToEncrypt.map((p)=> p == " " ? " " : (alpha.indexOf(p) + shiftBy) % 26);
     let shiftedCode = nextStep.map((p)=> p == " " ? " " : alpha[p]).join("");
     resultArea.innerHTML = `
-    <div>
         <div>
             <b>Plain text:</b> ${plainEntry.value}
         </div>
         <div>
             <b>Shift By:</b> ${shiftBy}
         </div>
-    </div>
-    <div>
         <div>
             <b>Code:</b> ${shiftedCode}
         </div>
-    </div>
     `
     plainEntry.value = ""
     shiftEntry.value = ""
@@ -92,19 +88,15 @@ const decryptText = () => {
     let nextStep = textToEncrypt.map((p)=> p == " " ? " " : (alpha.indexOf(p) - shiftBy) % 26);
     let shiftedCode = nextStep.map((p)=> p == " " ? " " : alpha[p]).join("");
     resultArea.innerHTML = `
-    <div>
         <div>
             <b>Plain text:</b> ${plainEntry.value}
         </div>
         <div>
             <b>Shift By:</b> ${shiftBy}
         </div>
-    </div>
-    <div>
         <div>
             <b>Decrypted Code:</b> ${shiftedCode}
         </div>
-    </div>
     `
     plainEntry.value = ""
     shiftEntry.value = ""
