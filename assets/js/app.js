@@ -65,8 +65,8 @@ const updateEquation = () => {
 const encryptText = () => {
     let shiftBy = parseInt(shiftEntry.value);
     let textToEncrypt = plainEntry.value.toUpperCase().split('')
-    let nextStep = textToEncrypt.map((p)=> p == " " ? " " : (alpha.indexOf(p) + shiftBy) % 26);
-    let shiftedCode = nextStep.map((p)=> p == " " ? " " : alpha[p]).join("");
+    let nextStep = textToEncrypt.map((p)=> p === " " ? " " : (alpha.indexOf(p) + shiftBy) % 26);
+    let shiftedCode = nextStep.map((p)=> p === " " ? " " : alpha[p]).join("");
     resultArea.innerHTML = `
         <div>
             <b>Plain text:</b> ${plainEntry.value}
@@ -85,8 +85,8 @@ const encryptText = () => {
 const decryptText = () => {
     let shiftBy = parseInt(shiftEntry.value);
     let textToEncrypt = plainEntry.value.toUpperCase().split('')
-    let nextStep = textToEncrypt.map((p)=> p == " " ? " " : (alpha.indexOf(p) - shiftBy) % 26);
-    let shiftedCode = nextStep.map((p)=> p == " " ? " " : alpha[p]).join("");
+    let nextStep = textToEncrypt.map((p)=> p === " " ? " " : (alpha.indexOf(p) - shiftBy) % 26);
+    let shiftedCode = nextStep.map((p)=> p === " " ? " " : alpha[p]).join("");
     resultArea.innerHTML = `
         <div>
             <b>Plain text:</b> ${plainEntry.value}
