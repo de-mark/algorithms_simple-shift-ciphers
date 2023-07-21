@@ -33,6 +33,15 @@ h1 {
     cursor: pointer;
 }
 
+.explain {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.explain p {
+    margin-bottom: .5rem;
+}
+
 #res {
     display: flex;
     width: 100%;
